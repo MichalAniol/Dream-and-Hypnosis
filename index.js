@@ -124,4 +124,40 @@ const start = () => {
     // console.log('%c textNum:', 'background: #ffcc00; color: #003300', textNum)
 }
 
-start()
+start();
+
+const ColorChange = () => {
+    let colors = [
+        '#0088cc',
+        '#a64dff',
+        '#e60073',
+        '#ff0000',
+        '#e6b800',
+        '#739900',
+        '#009933',
+        '#00cc7a',
+    ];
+    let color_rect = document.querySelector('#color_rect');
+    let lastColor = null;
+
+    const GetRandomColor = () => {
+        let RandomNum = () => Math.floor(Math.random() * colors.length);
+
+        let random = RandomNum();
+        while (random == lastColor) {
+            random = RandomNum();
+        }
+        lastColor = random;
+
+        return colors[random];
+    };
+
+    
+    color_rect.style.backgroundColor = GetRandomColor();
+
+    setInterval(() => {
+        color_rect.style.backgroundColor = GetRandomColor();
+    }, 4000, GetRandomColor);
+
+}
+ColorChange();

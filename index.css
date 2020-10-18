@@ -22,3 +22,13 @@ body {
     font-family: var(--font);
     font-size: 20px;
 }
+
+#color_rect {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    transition: all 3s;
+    transform: translate(-50%, -50%);
+}
