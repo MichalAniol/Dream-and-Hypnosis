@@ -3,40 +3,64 @@ const start = () => {
 
     const Get__1__Num = digit => {
         switch (digit) {
-            case '0': return '';
-            case '1': return 'jeden';
-            case '2': return 'dwa';
-            case '3': return 'trzy';
-            case '4': return 'cztery';
-            case '5': return 'pięć';
-            case '6': return 'sześć';
-            case '7': return 'siedem';
-            case '8': return 'osiem';
-            case '9': return 'dziewięć';
+            case '0':
+                return '';
+            case '1':
+                return 'jeden';
+            case '2':
+                return 'dwa';
+            case '3':
+                return 'trzy';
+            case '4':
+                return 'cztery';
+            case '5':
+                return 'pięć';
+            case '6':
+                return 'sześć';
+            case '7':
+                return 'siedem';
+            case '8':
+                return 'osiem';
+            case '9':
+                return 'dziewięć';
         }
     }
 
     const Get__1x__Num = digits => {
         switch (digits) {
-            case '10': return 'dziesięć';
-            case '11': return 'jedenaście';
-            case '12': return 'dwanaście';
-            case '13': return 'trzynaście';
-            case '14': return 'czternaście';
-            case '15': return 'piętnaście';
-            case '16': return 'szesnaście';
-            case '17': return 'siedemnaście';
-            case '18': return 'osiemnaście';
-            case '19': return 'dziewiętnaście';
+            case '10':
+                return 'dziesięć';
+            case '11':
+                return 'jedenaście';
+            case '12':
+                return 'dwanaście';
+            case '13':
+                return 'trzynaście';
+            case '14':
+                return 'czternaście';
+            case '15':
+                return 'piętnaście';
+            case '16':
+                return 'szesnaście';
+            case '17':
+                return 'siedemnaście';
+            case '18':
+                return 'osiemnaście';
+            case '19':
+                return 'dziewiętnaście';
         }
     }
 
     const Get__2__Num = digit => {
         switch (digit) {
-            case '0': return '';
-            case '2': return 'dwadzieścia';
-            case '3': return 'trzydzieści';
-            case '4': return 'czterdzieści';
+            case '0':
+                return '';
+            case '2':
+                return 'dwadzieścia';
+            case '3':
+                return 'trzydzieści';
+            case '4':
+                return 'czterdzieści';
         }
 
         let res = Get__1__Num(digit);
@@ -45,10 +69,14 @@ const start = () => {
 
     const Get__3__Num = digit => {
         switch (digit) {
-            case '1': return 'sto';
-            case '2': return 'dwieście';
-            case '3': return 'trzysta';
-            case '4': return 'czterysta';
+            case '1':
+                return 'sto';
+            case '2':
+                return 'dwieście';
+            case '3':
+                return 'trzysta';
+            case '4':
+                return 'czterysta';
         }
 
         let res = Get__1__Num(digit);
@@ -57,10 +85,14 @@ const start = () => {
 
     const Get__4__Num = digit => {
         switch (digit) {
-            case '1': return 'tysiąc';
-            case '2': return 'dwa tysiące';
-            case '3': return 'dtrzy tysiące';
-            case '4': return 'cztery tysiące';
+            case '1':
+                return 'tysiąc';
+            case '2':
+                return 'dwa tysiące';
+            case '3':
+                return 'dtrzy tysiące';
+            case '4':
+                return 'cztery tysiące';
         }
 
         let res = Get__1__Num(digit);
@@ -76,17 +108,17 @@ const start = () => {
         for (let i = txt.length - 1; i >= 0; i--) {
             let digit = txt[i];
 
-            if (index == 1) result = Get__1__Num(digit);                               // 1-9
-            if (txt.length == 1 && index == 1 && firstDigit == '0') result = 'zero';   // zero
+            if (index == 1) result = Get__1__Num(digit); // 1-9
+            if (txt.length == 1 && index == 1 && firstDigit == '0') result = 'zero'; // zero
             if (index == 2 && digit == '1') result = Get__1x__Num(digit + firstDigit); // 10-19
-            if (index == 2 && digit != '1') {                                          // 20-99
+            if (index == 2 && digit != '1') { // 20-99
                 if (firstDigit != '0') {
                     result = Get__2__Num(digit) + ' ' + result;
                 } else {
                     result = Get__2__Num(digit);
                 }
             }
-            if (index == 3 && !(txt.length == 4 && digit == '0')) {                    // 100-999
+            if (index == 3 && !(txt.length == 4 && digit == '0')) { // 100-999
                 let secondDigit = txt[txt.length - 2];
                 if (secondDigit == '0' && firstDigit == '0') {
                     result = Get__3__Num(digit);
@@ -94,7 +126,7 @@ const start = () => {
                     result = Get__3__Num(digit) + ' ' + result;
                 }
             }
-            if (index == 4) {                                                          // 1000-9999
+            if (index == 4) { // 1000-9999
                 let secondDigit = txt[txt.length - 2];
                 let thirdDigit = txt[txt.length - 3];
                 if (thirdDigit == '0' && secondDigit == '0' && firstDigit == '0') {
@@ -116,7 +148,8 @@ const start = () => {
         inner += num + ', ';
     }
 
-    result.innerHTML = inner;
+    // result.innerHTML = inner;
+
     // let textNum = NumToWord(23);
     // console.log('%c textNum:', 'background: #ffcc00; color: #003300', textNum)
 
@@ -152,12 +185,10 @@ const ColorChange = () => {
         return colors[random];
     };
 
-    
     color_rect.style.backgroundColor = GetRandomColor();
 
     setInterval(() => {
         color_rect.style.backgroundColor = GetRandomColor();
-    }, 4000, GetRandomColor);
-
+    }, 5000, GetRandomColor);
 }
 ColorChange();
